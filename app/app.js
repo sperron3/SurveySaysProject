@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import bodyParser from "body-parser";
 import logger from 'morgan';
 import session from 'express-session';
 
@@ -16,6 +17,9 @@ import {Secret, MongoURI} from "../config/index.js";
 
 //Import Routes
 import indexRouter from '../app/routes/index.js';
+import surveyRouter from '../app/routes/survey.js';
+import authRouter from '../app/routes/auth.js';
+
 //Complete DB Config
 mongoose.connect(MongoURI);
 const db = mongoose.connection;
@@ -36,6 +40,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(session({
     secret: Secret,
@@ -44,4 +50,6 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
+app.use('/', surveyRouter);
+app.use('/', authRouter);
 export default app;
