@@ -6,19 +6,13 @@
     <link rel="stylesheet" type="text/css" href="./content/style.css">
 </head>
 <body>
-<h2>Survey</h2>
+<h2> Favorites</h2>
 <form id="survey-form" action="/survey" method="post">
     <label for="question1">Question 1: What is your favorite color?</label>
     <input type="radio" name="answer1" value="red">Red<br>
     <input type="radio" name="answer1" value="blue">Blue<br>
     <input type="radio" name="answer1" value="green">Green<br>
     <input type="text" name="reason1" placeholder="Why did you choose this answer?"><br><br>
-
-    <label for="question2">Question 2: What is your favorite animal?</label>
-    <input type="radio" name="answer2" value="dog">Dog<br>
-    <input type="radio" name="answer2" value="cat">Cat<br>
-    <input type="radio" name="answer2" value="bird">Bird<br>
-    <input type="text" name="reason2" placeholder="Why did you choose this answer?"><br><br>
 
     <button type="submit">Submit</button>
     <button type="button" onclick="location.href='/results'">View results</button>

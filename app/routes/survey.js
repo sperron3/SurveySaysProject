@@ -1,10 +1,16 @@
 import {Router} from 'express';
-import {DisplaySurveyResults} from "../controllers/survey.js";
+import {DisplayFavoritesSurvey, DisplaySurveyResults, ProcessFavoritesSurvey,} from "../controllers/survey.js";
 // import {Survey} from '../models/surveyModel.js';
 
 const router = new Router();
 
 router.get('/results', DisplaySurveyResults);
+
+router.get('/survey', DisplayFavoritesSurvey );
+
+router.post('/survey', ProcessFavoritesSurvey);
+//Create
+
 
 // router.get('/results', async (req, res) => {
 //     const surveys = await Survey.find();
