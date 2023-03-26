@@ -24,7 +24,7 @@ const surveySchema = new Schema({
 });
 
 //const Survey = mongoose.model('Survey', surveySchema);
-export const Survey = mongoose.model("Survey", surveySchema);
+export default mongoose.model("Survey", surveySchema);
 
 //module.exports = Survey;
 //export default  mongoose.model("Survey", surveySchema);
