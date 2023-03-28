@@ -1,38 +1,26 @@
 import {Router} from 'express';
-import {DisplayFavoritesSurvey, DisplaySurveyResults, ProcessFavoritesSurvey,} from "../controllers/survey.js";
-// import {Survey} from '../models/surveyModel.js';
+import {
+    DisplaySurvey,
+    DisplaySurveyAddPage,
+    DisplaySurveyEditPage,
+    DisplaySurveyList,
+    ProcessSurveyAddPage,
+    ProcessSurveyDelete,
+    ProcessSurveyEditPage
+} from "../controllers/survey.js";
 
 const router = new Router();
 
-router.get('/results', DisplaySurveyResults);
+router.get('/survey', DisplaySurvey);
 
-router.get('/survey', DisplayFavoritesSurvey );
+router.get('/survey-add', DisplaySurveyAddPage );
+router.post('/survey-add', ProcessSurveyAddPage);
 
-router.post('/survey', ProcessFavoritesSurvey);
-//Create
+router.get('/survey-list', DisplaySurveyList);
 
+router.get('/survey-edit/:id', DisplaySurveyEditPage);
+router.post('/survey-edit/:id', ProcessSurveyEditPage);
 
-// router.get('/results', async (req, res) => {
-//     const surveys = await Survey.find();
-//     res.render('results', { surveys });
-// });
-//
-// router.post('/survey', async (req, res) => {
-//     const survey = new Survey({
-//         question: 'Question 1: What is your favorite color?',
-//         answer: req.body.answer1,
-//         reason: req.body.reason1,
-//     });
-//     await survey.save();
-//
-//     const survey2 = new Survey({
-//         question: 'Question 2: What is your favorite animal?',
-//         answer: req.body.answer2,
-//         reason: req.body.reason2,
-//     });
-//     await survey2.save();
-//
-//     // res.send('Thanks for taking the survey!');
-// });
+router.get('/survey-delete/:id', ProcessSurveyDelete);
 
 export default router;
