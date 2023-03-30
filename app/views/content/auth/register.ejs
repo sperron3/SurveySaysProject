@@ -1,3 +1,43 @@
-<div class="container-fluid">
-    <h1><%= title %></h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="register_form" method="POST">
+        <div class="container">
+          <h3>Register</h3>
+            <% if(messages.length > 0) { %>
+                <div id="messageArea" class="alert alert-danger">
+                    <%= messages %>
+                </div>
+            <% } %>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" id="username" required><br>
+
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
+
+          <label for="password_confirm"><b>Confirm Password</b></label>
+          <input type="password" placeholder="Confirm Password" name="password_confirm" id="password_confirm" required>
+          <hr>
+          <button id="registerButton" type="submit" class="register_btn" >Register</button>
+          <button type="button" onclick="location.href='/'">Cancel</button>
+        
+        </div>
+        
+        <div class="container signin">
+          <p>Already have an account? <a href="/login">Sign in</a>.</p>
+        </div>
+      </form>
+</body>
+</html>

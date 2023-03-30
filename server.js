@@ -28,7 +28,7 @@ function normalizePort(val){
     return false;
 }
 
-function onError(){
+function onError(error, port){
     if(error.syscall !== 'listen'){
         throw error;
     }

@@ -1,7 +1,10 @@
 import surveyModel from "../models/surveyModel.js";
+import {UserDisplayName} from "../utilities/index.js";
 
 export function DisplaySurvey(req, res, next){
-    res.render('index', {title: 'Survey', page: 'survey'});
+    res.render('index', {title: 'Survey',
+                        page: 'survey',
+                        username: UserDisplayName(req)});
 }
 export function DisplaySurveyList(req, res, next){
     surveyModel.find(function (err, surveyCollection){
@@ -10,13 +13,18 @@ export function DisplaySurveyList(req, res, next){
             res.end(err);
         }
 
-        res.render('index', {title: 'Survey Questions', page: 'survey/list', survey: surveyCollection })
-    })
+        res.render('index', {title: 'Survey Questions',
+                            page: 'survey/list',
+                            survey: surveyCollection,
+                            username: UserDisplayName(req)});
+    });
 }
-
 //Create
 export function DisplaySurveyAddPage(req, res, next){
-    res.render('index', {title: 'Create a Survey', page: 'survey/edit', survey: {}})
+    res.render('index', {title: 'Create a Survey',
+                        page: 'survey/edit',
+                        survey: {},
+                        username: UserDisplayName(req)});
 }
 export function ProcessSurveyAddPage(req, res, next){
     let newSurvey = surveyModel({
@@ -46,7 +54,9 @@ export function DisplaySurveyEditPage(req, res, next){
             console.error(error);
             res.end(error);
         }
-        res.render('index', {title: 'Edit a Survey', page: 'survey/edit', survey})
+        res.render('index', {title: 'Edit a Survey',
+                            page: 'survey/edit', survey,
+                            username: UserDisplayName});
     });
 }
 

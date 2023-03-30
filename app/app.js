@@ -4,10 +4,22 @@ import bodyParser from "body-parser";
 import logger from 'morgan';
 import session from 'express-session';
 
+
 //ES2022 Modules fix for __dirname
 import path, {dirname} from 'path';
 import {fileURLToPath} from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+//Import Passport Modules
+import passport from 'passport';
+import passportLocal from 'passport-local';
+import flash from 'connect-flash';
+
+//Define Authentication Strategy
+let localStrategy = passportLocal.Strategy;
+
+//Import User Model
+import User from './models/user.js';
 
 //Import Mongoose Module
 import mongoose from 'mongoose';
@@ -43,11 +55,27 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
+
+//Set up Express Session
 app.use(session({
     secret: Secret,
     saveUninitialized: false,
     resave: false
 }));
+
+//Setup Flash
+app.use(flash());
+
+//Initialize Passport and Session
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Implement Auth Strategy
+passport.use(User.createStrategy());
+
+//Serialization and Deserialization
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/', surveyRouter);
