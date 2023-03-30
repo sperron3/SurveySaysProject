@@ -54,22 +54,20 @@ export function ProcessRegistrationPage(req, res, next){
         }));
     });
 }
-
 export function ProcessLoginPage(req, res, next){
-    passport.authenticate('local', function(error, user, info){
-        if(error){
-            console.error(error);
+    passport.authenticate('local', function(err, user, info){
+        if(err){
+            console.error(err);
             res.end(error);
         }
-
-        if(!user){
+        if (!user){
             req.flash('loginMessage', 'Authentication Error');
+            return res.redirect('/login');
         }
-
-        req.logIn(user, function(error){
-            if(error){
-                console.error(error);
-                res.end(error);
+        req.logIn(user, function(err){
+            if(err){
+                console.error(err);
+                res.end(err);
             }
             return res.redirect('/');
         })
