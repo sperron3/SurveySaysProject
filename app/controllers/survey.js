@@ -120,7 +120,7 @@ export function ProcessSurveyEditPage(req, res, next){
             console.error(error);
             res.end(error);
         }
-        res.redirect('/survey-add');
+        res.redirect('/survey-list');
     })
 }
 
