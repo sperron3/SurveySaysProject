@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 
 const surveySchema = new mongoose.Schema({
     topic: String,
+    
     question1: String,
     option1: String,
     option2: String,

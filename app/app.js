@@ -31,6 +31,7 @@ import indexRouter from '../app/routes/index.js';
 import surveyRouter from '../app/routes/survey.js';
 import authRouter from '../app/routes/auth.js';
 import answersRouter from '../app/routes/surveyAnswers.js';
+import resultsRouter from '../app/routes/results.js';
 
 //Complete DB Config
 mongoose.connect(MongoURI);
@@ -87,4 +88,5 @@ app.use('/', indexRouter);
 app.use('/', surveyRouter);
 app.use('/', authRouter);
 app.use('/', answersRouter);
+app.use('/', resultsRouter);
 export default app;

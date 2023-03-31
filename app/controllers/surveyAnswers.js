@@ -19,12 +19,13 @@ export function ProcessUserSurveyPage(req, res, next){
         answer1: req.body.answer1,
         answer2: req.body.answer2,
         answer3: req.body.answer3,
+
     });
     surveyAnswers.create(userAnswers, function(error, Answers){
         if(error){
             console.error(error);
             res.end(error);
         }
-        res.redirect('/');
+        res.redirect('/results');
     })
 }
