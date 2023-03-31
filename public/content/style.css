@@ -98,28 +98,8 @@ tr:nth-child(even) {
     align-items: center;
     width: 100%;
     padding: 10px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     border-radius: 5px;
-}
-
-.survey-row-1 .survey-question {
-    background-color: #d3d3d3;
-}
-
-.survey-row-2 .survey-question {
-    background-color: #e3f1c7;
-}
-
-.survey-row-3 .survey-question {
-    background-color: #c1eecf;
-}
-
-.survey-row-4 .survey-question {
-    background-color: #afe4f7;
-}
-
-.survey-row-5 .survey-question {
-    background-color: #f6b5b5;
 }
 
 .survey-heading {

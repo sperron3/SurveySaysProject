@@ -43,6 +43,14 @@ db.on('error', () => console.log('Mongo Connection Error'));
 //Instantiate the Express Application
 const app = express();
 
+//Helper function for ejs templates that 
+//returns a random RGB value "rgb(0-255, 0-255, 0-255)"
+app.locals.randomRGB = () => {
+    //Returns a number from 0 - 255
+    const random = () => Math.floor(Math.random() * 256); 
+    return `rgba(${random()}, ${random()}, ${random()}, 0.6)`;
+  };
+
 //EJS Setup
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
