@@ -83,7 +83,7 @@ export function ProcessSurveyEditPage(req, res, next){
 export function ProcessSurveyDelete(req, res, next){
     let id = req.params.id;
 
-    surveyModel.remove({_id: id}, function(error){
+    surveyModel.deleteOne({_id: id}, function(error){
      if(error){
          console.error(error);
          res.end(error);
