@@ -30,6 +30,7 @@ import {Secret, MongoURI} from "../config/index.js";
 import indexRouter from '../app/routes/index.js';
 import surveyRouter from '../app/routes/survey.js';
 import authRouter from '../app/routes/auth.js';
+import answersRouter from '../app/routes/surveyAnswers.js';
 
 //Complete DB Config
 mongoose.connect(MongoURI);
@@ -77,4 +78,5 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRouter);
 app.use('/', surveyRouter);
 app.use('/', authRouter);
+app.use('/', answersRouter);
 export default app;

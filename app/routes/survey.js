@@ -1,6 +1,5 @@
 import {Router} from 'express';
 import {
-    DisplaySurvey,
     DisplaySurveyAddPage,
     DisplaySurveyEditPage,
     DisplaySurveyList,
@@ -11,8 +10,6 @@ import {
 import {AuthGuard} from "../utilities/index.js";
 
 const router = new Router();
-
-router.get('/survey', DisplaySurvey);
 
 router.get('/survey-add', AuthGuard, DisplaySurveyAddPage );
 router.post('/survey-add', AuthGuard, ProcessSurveyAddPage);

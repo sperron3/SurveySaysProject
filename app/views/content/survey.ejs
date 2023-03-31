@@ -1,32 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title><% title %></title>
-    <link rel="stylesheet" type="text/css" href="./content/style.css">
-</head>
-<body>
-<h2> Favorites</h2>
-<form id="survey-form" action="/survey" method="post">
-    <label for="question1">Question 1:</label>
-    <input type="radio" name="option1" value=""><br>
-    <input type="radio" name="answer1" value="blue">Blue<br>
-    <input type="radio" name="answer1" value="green">Green<br>
-    <input type="text" name="reason1" placeholder="Why did you choose this answer?"><br><br>
+<link rel="stylesheet" type="text/css" href="./content/style.css">
+<div class="container">
 
-    <button type="submit">Submit</button>
-    <button type="button" onclick="location.href='/results'">View results</button>
-    <button type="reset">Reset</button>
-    <button type="button" onclick="location.href='/'">Home Page</button>
-</form>
-<!--
-    <script>
-      const form = document.querySelector('#survey-form');
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        form.reset();
-      });
-    </script>
-  -->
-</body>
-</html>
+    <form id="survey-form" action="/survey" method="post">
+        <% for(let count=0; count < 1; count++) { %>
+        <h3><%= survey[count].topic %></h3>
+        <label for="question1"><%= survey[count].question1 %></label>
+        <input type="radio" name="option1" value="answer1"><%= survey[count].option1 %><br>
+        <input type="radio" name="option2" value="answer2"><%= survey[count].option2 %><br>
+        <input type="radio" name="option3" value="answer3"><%= survey[count].option3 %><br>
+        <input type="text" name="reason1" placeholder="Why did you choose this answer?"><br><br>
+
+
+        <button type="submit">Submit</button>
+        <button type="button" onclick="location.href='/results'">View results</button>
+        <button type="reset">Reset</button>
+        <button type="button" onclick="location.href='/'">Home Page</button>
+        <% } %>
+    </form>
+</div>

@@ -21,13 +21,17 @@
             <tr>
                 <td><%= survey[count].option3 %></td>
             </tr>
-            <a class="btn btn-primary" href="/survey-edit/<%= survey[count].id %>">
-                Edit
-            </a>
-            <a class="btn btn-warning" href="/survey-delete/<%= survey[count].id %>">
-                Delete
-            </a>
-
+            <td class="text-center col-1">
+                <a class="btn btn-primary" href="/survey-edit/<%= survey[count].id %>">
+                    Edit
+                </a>
+            </td>
+            <td class="text-center col-1">
+                <a class="btn btn-warning" href="/survey-delete/<%= survey[count].id %>">
+                    Delete
+                </a>
+            </td>
+            </tr>
             <% } %>
     </table>
 </div>
