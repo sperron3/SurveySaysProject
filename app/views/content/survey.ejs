@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="./content/style.css" />
 <div class="container">
   <form id="survey-form" action="/survey" method="post">
-    <% for(let count=0; count < survey.length; count++) { %>
+    <% for(let count=0; count < 1; count++) { %>
     <h3><%= survey[count].topic %></h3>
     <label for="question1"><%= survey[count].question1 %></label>
     <input type="radio" name="answer1" value="<%=survey[count].option1 %>" /><%=survey[count].option1 %><br />
