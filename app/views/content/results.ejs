@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HTML Table Generator</title>
+    <title></title>
     <style>
         table {
             border:1px solid #b3adad;
@@ -24,22 +24,28 @@
     </style>
 </head>
 <body>
+<button class="btn btn-primary btn-lg" onclick="window.print();">
+    <i class="fas fa-edit"></i> Print Results</button>
 <table>
-    <button onclick="window.print();" class="btn btn-primary btn-lg">
-        <i class="fas fa-edit"></i> Print Results</button>
-    <% for(let count =0; count < 1; count++) { %>
+    <% for(let count=0; count < answers.length; count++) { %>
     <thead>
     <tr>
-
-        <th><%= survey[count].question1 %></th>
+        <th>Questions</th>
+        <th>Answers</th>
     </tr>
-    <% } %>
     </thead>
     <tbody>
-    <% for(let count =0; count < answers.length; count++) { %>
+    <% for(let count=0; count < survey.length; count++) { %>
     <tr>
-        <td><%= answers[count].answer1 %></td>
+        <td><%= survey[count].question1%></td>
+        <td><%= answers[count].answer1%></td>
     </tr>
+    <% } %>
+    <td class="text-center col-1">
+        <a class="btn btn-warning" href="/results-delete/<%= answers[count].id %>">
+            Delete
+        </a>
+    </td>
     <% } %>
     </tbody>
 </table>

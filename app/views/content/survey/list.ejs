@@ -1,25 +1,34 @@
 <link rel="stylesheet" type="text/css" href="./content/style.css">
 <div class="container">
 
-    <h1><%=title %></h1>
-    <a href="/survey-add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"></i> Create Another Survey
-    </a>
+    <h1>
+        <%=title %>
+    </h1>
     <table style="width:100%">
         <% for(let count=0; count < survey.length; count++) { %>
-        <tr>
-            <th>Topic</th>
-            <td><%= survey[count].topic %></td>
-        </tr>
-        <tr>
-            <th rowspan="3"><%= survey[count].question1 %></th>
-            <td><%= survey[count].option1 %></td>
-        </tr>
-        <tr>
-            <td><%= survey[count].option2 %></td>
-        </tr>
             <tr>
-                <td><%= survey[count].option3 %></td>
+                <th>Topic</th>
+                <td>
+                    <%= survey[count].topic %>
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="3">
+                    <%= survey[count].question1 %>
+                </th>
+                <td>
+                    <%= survey[count].option1 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= survey[count].option2 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= survey[count].option3 %>
+                </td>
             </tr>
             <td class="text-center col-1">
                 <a class="btn btn-primary" href="/survey-edit/<%= survey[count].id %>">
@@ -31,7 +40,6 @@
                     Delete
                 </a>
             </td>
-            </tr>
             <% } %>
     </table>
 </div>

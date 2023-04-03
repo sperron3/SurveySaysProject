@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <div class="login_page">
-        <div class="form">
-          <div class="login">
-            <div class="login-header">
-              <h3><%- title %></h3>
-                <% if(messages.length > 0) { %>
-                    <div id="messageArea" class="alert alert-danger">
-                        <%= messages %>
-                    </div>
-                <% } %>
-              <p>Please enter your login information to create a survey.</p>
+  <div class="login_page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3><%- title %></h3>
+          <% if(messages.length> 0) { %>
+            <div id="messageArea" class="alert alert-danger">
+              <%= messages %>
             </div>
-          </div>
-          <form class="login_form" method="POST">
-              <label for="username"></label>
-              <input type="text" id="username" name="username" placeholder="Username"/>
-              
-              <label for="password"></label>
-              <input type="password" id="password" name="password" placeholder="Password"/>
-            
-              <button id="submitButton" type="submit" class="submit_btn">login</button>
-            <p class="message">Not registered? <a href="/register">Create an account</a></p>
-          </form>
+            <% } %>
+              <p>Please enter your login information to create a survey.</p>
         </div>
       </div>
+      <form class="login_form" method="POST">
+        <label for="username"></label>
+        <input type="text" id="username" name="username" placeholder="Username" />
+
+        <label for="password"></label>
+        <input type="password" id="password" name="password" placeholder="Password" />
+
+        <button id="submitButton" type="submit" class="submit_btn">login</button>
+        <p class="message">Not registered? <a href="/register">Create an account</a></p>
+      </form>
+    </div>
+  </div>
 </body>
+
 </html>

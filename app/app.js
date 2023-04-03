@@ -5,8 +5,8 @@ import session from 'express-session';
 
 
 //ES2022 Modules fix for __dirname
-import path, {dirname} from 'path';
-import {fileURLToPath} from 'url';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //Import Passport Modules
@@ -24,7 +24,7 @@ import User from './models/user.js';
 import mongoose from 'mongoose';
 
 //Configuration Module
-import {Secret, MongoURI} from "../config/index.js";
+import { Secret, MongoURI } from "../config/index.js";
 
 //Import Routes
 import indexRouter from '../app/routes/index.js';
@@ -47,10 +47,10 @@ const app = express();
 //Helper function for ejs templates that 
 //returns a random RGB value "rgb(0-255, 0-255, 0-255)"
 app.locals.randomRGB = () => {
-    //Returns a number from 0 - 255
-    const random = () => Math.floor(Math.random() * 256); 
-    return `rgba(${random()}, ${random()}, ${random()}, 0.6)`;
-  };
+  //Returns a number from 0 - 255
+  const random = () => Math.floor(Math.random() * 256);
+  return `rgba(${random()}, ${random()}, ${random()}, 0.6)`;
+};
 
 //EJS Setup
 app.set('views', path.join(__dirname, '/views'));
@@ -59,15 +59,15 @@ app.set('view engine', 'ejs');
 //General Middleware
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 //Set up Express Session
 app.use(session({
-    secret: Secret,
-    saveUninitialized: false,
-    resave: false
+  secret: Secret,
+  saveUninitialized: false,
+  resave: false
 }));
 
 //Setup Flash

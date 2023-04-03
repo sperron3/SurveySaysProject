@@ -1,5 +1,5 @@
-import {Router} from 'express';
-import {DisplayHomePage} from "../controllers/index.js";
+import { Router } from 'express';
+import { DisplayHomePage } from "../controllers/index.js";
 
 const router = Router();
 

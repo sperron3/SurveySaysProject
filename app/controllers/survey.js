@@ -1,27 +1,32 @@
 import surveyModel from "../models/surveyModel.js";
-import {UserDisplayName} from "../utilities/index.js";
+import { UserDisplayName } from "../utilities/index.js";
+import surveyAnswers from "../models/surveyAnswers.js";
 
-export function DisplaySurveyList(req, res, next){
-    surveyModel.find(function (err, surveyCollection){
-        if(err){
+export function DisplaySurveyList(req, res, next) {
+    surveyModel.find(function (err, surveyCollection) {
+        if (err) {
             console.error(err);
             res.end(err);
         }
 
-        res.render('index', {title: 'Survey Questions',
-                            page: 'survey/list',
-                            survey: surveyCollection,
-                            username: UserDisplayName(req)});
+        res.render('index', {
+            title: 'Survey Questions',
+            page: 'survey/list',
+            survey: surveyCollection,
+            username: UserDisplayName(req)
+        });
     });
 }
 //Create
-export function DisplaySurveyAddPage(req, res, next){
-    res.render('index', {title: 'Create a Survey',
-                        page: 'survey/edit',
-                        survey: {},
-                        username: UserDisplayName(req)});
+export function DisplaySurveyAddPage(req, res, next) {
+    res.render('index', {
+        title: 'Create a Survey',
+        page: 'survey/edit',
+        survey: {},
+        username: UserDisplayName(req)
+    });
 }
-export function ProcessSurveyAddPage(req, res, next){
+export function ProcessSurveyAddPage(req, res, next) {
     let newSurvey = surveyModel({
         topic: req.body.topic,
 
@@ -32,8 +37,8 @@ export function ProcessSurveyAddPage(req, res, next){
 
     });
 
-    surveyModel.create(newSurvey, function(error, survey){
-        if(error){
+    surveyModel.create(newSurvey, function (error, survey) {
+        if (error) {
             console.error(error);
             res.end(error);
         }
@@ -42,22 +47,24 @@ export function ProcessSurveyAddPage(req, res, next){
 }
 
 //Update
-export function DisplaySurveyEditPage(req, res, next){
+export function DisplaySurveyEditPage(req, res, next) {
 
     let id = req.params.id;
 
-    surveyModel.findById(id, function(error, survey){
-        if(error){
+    surveyModel.findById(id, function (error, survey) {
+        if (error) {
             console.error(error);
             res.end(error);
         }
-        res.render('index', {title: 'Edit a Survey',
-                            page: 'survey/edit', survey,
-                            username: UserDisplayName});
+        res.render('index', {
+            title: 'Edit a Survey',
+            page: 'survey/edit', survey,
+            username: UserDisplayName
+        });
     });
 }
 
-export function ProcessSurveyEditPage(req, res, next){
+export function ProcessSurveyEditPage(req, res, next) {
     let id = req.params.id;
 
     let editSurvey = surveyModel({
@@ -71,8 +78,8 @@ export function ProcessSurveyEditPage(req, res, next){
 
     })
 
-    surveyModel.updateOne({_id: id}, editSurvey, function(error, survey){
-        if(error){
+    surveyModel.updateOne({ _id: id }, editSurvey, function (error, survey) {
+        if (error) {
             console.error(error);
             res.end(error);
         }
@@ -80,14 +87,14 @@ export function ProcessSurveyEditPage(req, res, next){
     })
 }
 
-export function ProcessSurveyDelete(req, res, next){
+export function ProcessSurveyDelete(req, res, next) {
     let id = req.params.id;
 
-    surveyModel.deleteOne({_id: id}, function(error){
-     if(error){
-         console.error(error);
-         res.end(error);
-     }
-     res.redirect('/survey-list');
+    surveyModel.deleteOne({ _id: id }, function (error) {
+        if (error) {
+            console.error(error);
+            res.end(error);
+        }
+        res.redirect('/survey-list');
     });
 }

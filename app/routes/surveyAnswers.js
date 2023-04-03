@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import {
     DisplayUserSurvey,
     ProcessUserSurveyPage
@@ -9,5 +9,6 @@ const router = new Router();
 //Display Survey Answer Page
 router.get('/survey', DisplayUserSurvey);
 router.post('/survey', ProcessUserSurveyPage);
+
 
 export default router;
