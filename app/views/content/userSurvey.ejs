@@ -1,0 +1,25 @@
+<link rel="stylesheet" type="text/css" href="./content/style.css" />
+<div class="container">
+  <form id="survey-form" method="post">
+      <h3>
+        <%= survey.topic %>
+      </h3>
+      <label for="question1">
+        <%= survey.question1 %>
+      </label>
+      <br>
+      <input type="radio" name="answer1" value="<%=survey.option1 %>" />
+      <%=survey.option1 %><br />
+        <input type="radio" name="answer1" value="<%=survey.option2 %>" />
+        <%=survey.option2 %><br />
+          <input type="radio" name="answer1" value="<%=survey.option3 %>" />
+          <%=survey.option3 %><br />
+            <br /><br />
+            <button type="submit">Submit</button>
+            <button type="button" onclick="location.href='/results'">
+              View results
+            </button>
+            <button type="reset">Reset</button>
+            <button type="button" onclick="location.href='/'">Home Page</button>
+  </form>
+</div>

@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { DisplayHomePage } from "../controllers/index.js";
+import {DisplaySurveyHomePage} from "../controllers/index.js";
 
 const router = Router();
 
-router.get('/', DisplayHomePage);
-router.get('/home', DisplayHomePage);
+router.get('/', DisplaySurveyHomePage);
+router.get('/home', DisplaySurveyHomePage);
 
 export default router;

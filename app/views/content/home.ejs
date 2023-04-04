@@ -2,19 +2,23 @@
 <html>
 
 <head>
-    <title>Operate Home Page</title>
+    <title>HomePage</title>
     <link rel="stylesheet" type="text/css" href="./content/style.css">
 </head>
 
 <body>
 
     <div class="survey-container">
+        <% for(let count=0; count < survey.length; count++) { %>
         <div class="survey-row" style="background-color: <%=randomRGB()%>;">
             <div class="survey-question">
-                <h3 class="survey-heading">Take an education survey.</h3>
-                <button class="survey-button" type="button" onclick="location.href='/survey'">Take the survey</button>
+                <h3 class="survey-heading"><%= survey[count].topic%></h3>
+                <a class="btn btn-primary" href="/answers-add/<%= survey[count].id %>">
+                    Take the Survey
+                </a>
             </div>
         </div>
+        <% } %>
     </div>
 </body>
 </html>

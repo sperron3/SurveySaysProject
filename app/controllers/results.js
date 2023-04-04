@@ -33,6 +33,6 @@ export function ProcessResultsDelete(req, res, next) {
             console.error(error);
             res.end(error);
         }
-        res.redirect('/survey');
+        res.redirect('/results');
     });
 }
