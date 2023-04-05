@@ -26,14 +26,19 @@
 <body>
     <button onclick="window.print()">Print Results</button>
 <table>
+    <% for(let count=0; count < answers.length; count++) { %>
     <thead>
     <tr>
-        <th>Questions</th>
-        <th>Answers</th>
+        <th>Topic</th>
     </tr>
     </thead>
     <tbody>
-    <% for(let count=0; count < answers.length; count++) { %>
+    <tr>
+        <td><%= answers[count].topic%></td>
+    </tr>
+    <tr>
+        <th><%= answers[count].question1%></th>
+    </tr>
     <tr>
         <td><%= answers[count].answer1%></td>
     </tr>
@@ -42,8 +47,8 @@
             Delete
         </a>
     </td>
-    <% } %>
     </tbody>
+        <% } %>
 </table>
 </body>
 </html>

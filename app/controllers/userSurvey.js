@@ -25,6 +25,8 @@ export function ProcessAddAnswersPage(req, res, next){
         else{
             if(survey){
                 let newSurveyAnswers = surveyAnswers({
+                    topic: req.body.topic,
+                    question1: req.body.question1,
                     answer1: req.body.answer1
                 });
                 surveyAnswers.create(newSurveyAnswers, function(error, answers){
