@@ -3,11 +3,7 @@ import surveyModel from "../models/surveyModel.js";
 import surveyAnswers from "../models/surveyAnswers.js";
 
 export function DisplaySurveyResults(req, res, next) {
-    surveyModel.find(function (err, surveyCollection) {
-        if (err) {
-            console.error(err);
-            res.end(err);
-        }
+
         surveyAnswers.find(function (err, answersCollection) {
             if (err) {
                 console.error(err);
@@ -16,23 +12,21 @@ export function DisplaySurveyResults(req, res, next) {
 
             res.render('index', {
                 title: 'Survey Results',
-                page: 'results',
-                survey: surveyCollection,
+                page: 'results/list',
                 answers: answersCollection,
                 username: UserDisplayName(req)
             });
         });
-    });
 }
 
 export function ProcessResultsDelete(req, res, next) {
     let id = req.params.id;
 
-    surveyAnswers.deleteMany({ _id: id }, function (error) {
+    surveyAnswers.deleteOne({ _id: id }, function (error) {
         if (error) {
             console.error(error);
             res.end(error);
         }
-        res.redirect('/results');
+        res.redirect('/results-list');
     });
 }

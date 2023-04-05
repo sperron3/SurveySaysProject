@@ -34,7 +34,7 @@ export function ProcessAddAnswersPage(req, res, next){
                         console.error(error);
                         res.end(error);
                     }
-                    res.redirect('/results');
+                    res.redirect('/results-list');
                 })
             }
         }

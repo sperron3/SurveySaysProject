@@ -3,7 +3,7 @@ import { DisplaySurveyResults, ProcessResultsDelete} from '../controllers/result
 
 const router = new Router();
 
-router.get('/results', DisplaySurveyResults);
+router.get('/results-list', DisplaySurveyResults);
 router.get('/results-delete/:id', ProcessResultsDelete);
 
 export default router;
