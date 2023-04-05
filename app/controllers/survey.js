@@ -10,7 +10,7 @@ export function DisplaySurveyList(req, res, next) {
         }
 
         res.render('index', {
-            title: 'Survey Questions',
+            title: 'My Surveys',
             page: 'survey/list',
             survey: surveyCollection,
             username: UserDisplayName(req)

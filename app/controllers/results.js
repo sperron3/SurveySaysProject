@@ -15,7 +15,7 @@ export function DisplaySurveyResults(req, res, next) {
             }
 
             res.render('index', {
-                title: 'Survey Answers',
+                title: 'Survey Results',
                 page: 'results',
                 survey: surveyCollection,
                 answers: answersCollection,
