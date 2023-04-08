@@ -6,7 +6,6 @@ const { PassportLocalSchema } = mongoose;
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-
     username: String,
     email: String,
     displayName: String

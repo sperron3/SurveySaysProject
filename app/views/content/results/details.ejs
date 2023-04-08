@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .results-table {
+            overflow: auto;
+            width: 100%;
+        }
+
+        .results-table table {
+            border: 1px solid #DEDEDF;
+            height: 100%;
+            width: 50%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: center;
+        }
+
+        .results-table caption {
+            caption-side: top;
+            text-align: left;
+        }
+
+        .results-table th {
+            border: 1px solid #DEDEDF;
+            background-color: #ECEFF1;
+            color: #000000;
+            padding: 5px;
+        }
+
+        .results-table td {
+            border: 1px solid #DEDEDF;
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        <%= title %>
+    </h3>
+    <div class="results-table" role="region" tabindex="0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Username</td>
+                </tr>
+                <tr>
+                    <th>Date Taken</th>
+                </tr>
+                <tr>
+                    <td>
+                        <%= answers.createdAt %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Survey Topic</th>
+                </tr>
+                <tr>
+                    <td>
+                        <%= answers.topic %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Question 1</th>
+                </tr>
+                <tr>
+                    <td>
+                        <%= answers.question1 %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Answer</th>
+                </tr>
+                <tr>
+                    <td>
+                        <%= answers.answer1 %>
+                    </td>
+                </tr>
+            </tbody>
+        </table><br>
+        <input type="button" value="Print Results" onClick="window.print()">
+    </div>
+</body>
+</html>

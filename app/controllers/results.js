@@ -1,5 +1,4 @@
 import { UserDisplayName } from "../utilities/index.js";
-import surveyModel from "../models/surveyModel.js";
 import surveyAnswers from "../models/surveyAnswers.js";
 
 export function DisplaySurveyResults(req, res, next) {
@@ -17,6 +16,23 @@ export function DisplaySurveyResults(req, res, next) {
                 username: UserDisplayName(req)
             });
         });
+}
+
+export function DisplaySurveyDetailsPage(req, res, next) {
+
+    let id = req.params.id;
+
+    surveyAnswers.findById(id, function (error, answers) {
+        if (error) {
+            console.error(error);
+            res.end(error);
+        }
+        res.render('index', {
+            title: 'Detailed Results',
+            page: 'results/details', answers,
+            username: UserDisplayName
+        });
+    });
 }
 
 export function ProcessResultsDelete(req, res, next) {
