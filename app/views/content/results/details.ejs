@@ -54,54 +54,103 @@
 
 <body>
     <h3>
-        <%= title %>
+       Detailed Results for <%= answers.name %>
     </h3>
     <div class="results-table" role="region" tabindex="0">
         <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Username</td>
-                </tr>
-                <tr>
-                    <th>Date Taken</th>
-                </tr>
-                <tr>
-                    <td>
-                        <%= answers.createdAt %>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Survey Topic</th>
-                </tr>
-                <tr>
-                    <td>
-                        <%= answers.topic %>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Question 1</th>
-                </tr>
-                <tr>
-                    <td>
-                        <%= answers.question1 %>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Answer</th>
-                </tr>
-                <tr>
-                    <td>
-                        <%= answers.answer1 %>
-                    </td>
-                </tr>
-            </tbody>
-        </table><br>
+            <tr>
+                <th>Date Taken</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.createdAt %>
+                </td>
+            </tr>
+            <tr>
+                <th>Question 1</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.question1 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.answer1 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Question 2</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.question2 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.answer2 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Question 3</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.question3 %>
+                </td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.answer3 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Question 4</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.question4 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.answer4 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Question 5</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.question5 %>
+                </td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>
+                    <%= answers.answer5 %>
+                </td>
+            </tr>
+        </table>
+        <br>
         <input type="button" value="Print Results" onClick="window.print()">
     </div>
 </body>
+
 </html>

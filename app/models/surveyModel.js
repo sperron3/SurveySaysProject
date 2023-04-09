@@ -8,9 +8,13 @@ const surveySchema = new mongoose.Schema({
   topic: String,
 
   question1: String,
-  option1: String,
-  option2: String,
-  option3: String,
+  question2: String,
+  question3: String,
+  question4: String,
+  question5: String,
+
+  startsAt: Date,
+  endsAt: Date,
 
 }, {
   timestamps: true,

@@ -1,5 +1,5 @@
 import { UserDisplayName } from "../utilities/index.js";
-import surveyAnswers from "../models/surveyAnswers.js";
+import surveyAnswers from "../models/userSurvey.js";
 
 export function DisplaySurveyResults(req, res, next) {
 

@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="./content/style.css">
 </head>
 
 <body>
@@ -16,13 +15,30 @@
         <hr>
         <label for="question1">Question 1:</label>
         <input type="text" name="question1" value="<%= survey.question1 %>" required><br>
-        <label for="option1">Option 1:</label>
-        <input type="text" name="option1" value="<%= survey.option1 %>" required><br>
-        <label for="option2">Option 2:</label>
-        <input type="text" name="option2" value="<%= survey.option2 %>" required><br>
-        <label for="option3">Option 3:</label>
-        <input type="text" name="option3" value="<%= survey.option3 %>" required><br>
         <hr>
+        <label for="question3">Question 2:</label>
+        <input type="text" name="question2" value="<%= survey.question2 %>" required><br>
+        <hr>
+
+        <label for="question3">Question 3:</label>
+        <input type="text" name="question3" value="<%= survey.question3 %>" required><br>
+        <hr>
+
+        <label for="question3">Question 4:</label>
+        <input type="text" name="question4" value="<%= survey.question4 %>" required><br>
+        <hr>
+
+        <label for="question5">Question 5:</label>
+        <input type="text" name="question5" value="<%= survey.question5 %>" required><br>
+        <hr>
+
+        <label for="startsAt">Starts At:</label>
+        <input type="datetime-local" id="startsAt" name="startsAt" required>
+
+        <label for="endsAt">Ends At:</label>
+        <input type="datetime-local" id="endsAt" name="endsAt" required>
+        <br><br>
+
         <button class="btn btn-primary" type="submit">
             <i class="fas fa-edit"></i> Submit</button>
 
