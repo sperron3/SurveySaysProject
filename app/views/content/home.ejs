@@ -9,6 +9,13 @@
 <body>
 
     <div class="survey-container">
+        <% if(survey.length === 0) { %>
+            <div class="survey-row" style="background-color: <%=randomRGB()%>;">
+                <div class="survey-question">
+                    <h3 class="survey-heading">Sorry. There are no active surveys at this time. Please return later.</h3>
+                </div>
+            </div>
+            <% } else { %>
         <% for(let count=0; count < survey.length; count++) { %>
         <div class="survey-row" style="background-color: <%=randomRGB()%>;">
             <div class="survey-question">
@@ -20,5 +27,6 @@
         </div>
         <% } %>
     </div>
+    <% } %>
 </body>
 </html>
