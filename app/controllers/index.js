@@ -8,6 +8,6 @@ export function DisplaySurveyHomePage(req, res, next){
             res.end(err);
         }
 
-        res.render('index', {title: 'Home', page: 'home', survey: surveyCollection, username: UserDisplayName });
+        res.render('index', {title: 'Home', page: 'home', survey: surveyCollection, username: UserDisplayName(req)});
     })
 }

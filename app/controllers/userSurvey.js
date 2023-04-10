@@ -10,7 +10,7 @@ export function DisplayAddAnswersPage(req, res, next){
             console.error(error);
             res.end(error);
         }
-        res.render('index', {title: 'Survey Answers', page: 'userSurvey', survey: survey, username: UserDisplayName })
+        res.render('index', {title: 'Survey Answers', page: 'userSurvey', survey: survey, username: UserDisplayName(req) })
     })
 }
 

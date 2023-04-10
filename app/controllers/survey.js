@@ -62,7 +62,7 @@ export function DisplaySurveyEditPage(req, res, next) {
         res.render('index', {
             title: 'Edit a Survey',
             page: 'survey/edit', survey,
-            username: UserDisplayName
+            username: UserDisplayName(req)
         });
     });
 }

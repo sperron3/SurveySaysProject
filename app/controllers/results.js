@@ -30,7 +30,7 @@ export function DisplaySurveyDetailsPage(req, res, next) {
         res.render('index', {
             title: 'Detailed Results',
             page: 'results/details', answers,
-            username: UserDisplayName
+            username: UserDisplayName(req)
         });
     });
 }
