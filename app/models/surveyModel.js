@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 
 const surveySchema = new mongoose.Schema({
+
   topic: String,
 
   question1: String,
@@ -13,8 +14,16 @@ const surveySchema = new mongoose.Schema({
   question4: String,
   question5: String,
 
-  startsAt: Date,
-  endsAt: Date,
+  startsAt: {
+    type: Date,
+    required: true,
+  },
+
+  endsAt: {
+    type: Date,
+    required: true,
+    expires: 0
+  }
 
 }, {
   timestamps: true,

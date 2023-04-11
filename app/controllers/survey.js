@@ -27,17 +27,7 @@ export function DisplaySurveyAddPage(req, res, next) {
 }
 export function ProcessSurveyAddPage(req, res, next) {
     let newSurvey = surveyModel({
-
-        topic: req.body.topic,
-
-        question1: req.body.question1,
-        question2: req.body.question2,
-        question3: req.body.question3,
-        question4: req.body.question4,
-        question5: req.body.question5,
-
-        startsAt: req.body.startsAt,
-        endsAt: req.body.endsAt
+        ...req.body
     });
 
     surveyModel.create(newSurvey, function (error, survey) {
@@ -72,17 +62,7 @@ export function ProcessSurveyEditPage(req, res, next) {
 
     let editSurvey = surveyModel({
         _id: req.body.id,
-        topic: req.body.topic,
-
-        question1: req.body.question1,
-        question2: req.body.question2,
-        question3: req.body.question3,
-        question4: req.body.question4,
-        question5: req.body.question5,
-
-        startsAt: req.body.startsAt,
-        endsAt: req.body.endsAt
-
+        ...req.body
     })
 
     surveyModel.updateOne({ _id: id }, editSurvey, function (error, survey) {
