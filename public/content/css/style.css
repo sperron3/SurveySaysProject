@@ -9,9 +9,7 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     background-color: rgb(217, 211, 211);
     max-width: 800px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
     padding: 20px;
 }
 
@@ -63,9 +61,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     max-width: 800px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     background-color: white;
 }
@@ -121,23 +117,11 @@ tr:nth-child(even) {
     background-color: #0062cc;
 }
 
-.topbar {
-    background-color: #0a0a0a;
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px;
-    height: 40px;
-}
-.topbar-button {
-    margin-left: 10px;
-    background-color: #e8617f;
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 10px 10px;
-    border-radius: 4px;
-    cursor: pointer;;
-    width: 120px;
-}
-.topbar-button:hover {
-    background-color: rgb(238, 215, 13);
+.survey-says-logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20%;
+    height: 300px;
+    width: 300px;
 }
