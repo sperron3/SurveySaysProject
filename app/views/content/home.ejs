@@ -3,33 +3,39 @@
 
 <head>
     <title>HomePage</title>
-    <link rel="stylesheet" type="text/css" href="./content/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./content/css/home.css">
 </head>
 
 <body>
 <div class="survey-says-logo">
     <img src="./content/photos/SurveySaysLogo.png" alt="Survey Says Logo">
 </div>
-
-    <div class="survey-container">
-        <% if(survey.length === 0) { %>
-            <div class="survey-row" style="background-color: <%=randomRGB()%>;">
-                <div class="survey-question">
-                    <h3 class="survey-heading">Sorry. There are no active surveys at this time. Please return later.</h3>
-                </div>
-            </div>
-            <% } else { %>
-        <% for(let count=0; count < survey.length; count++) { %>
-        <div class="survey-row" style="background-color: <%=randomRGB()%>;">
-            <div class="survey-question">
-                <h3 class="survey-heading"><%= survey[count].topic%></h3>
-                <a class="btn btn-primary" href="/answers-add/<%= survey[count].id %>">
-                    Take the Survey
-                </a>
-            </div>
-        </div>
-        <% } %>
-    </div>
+<table class="homepage-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Active Surveys</th>
+        <th>Expires At</th>
+        <th>Take the Survey</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(let count=0; count < survey.length; count++) { %>
+        <tr>
+            <td>
+                <%= count+1 %>
+            </td>
+            <td>
+                <%= survey[count].topic%>
+            </td>
+            <td>
+                <%= survey[count].endsAt%>
+            </td>
+            <td> <a class="btn btn-primary" href="/answers-add/<%= survey[count].id %>">Take Survey</a></td>
+        </tr>
     <% } %>
+    </tbody>
+</table>
 </body>
+
 </html>

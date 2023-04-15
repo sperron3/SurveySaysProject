@@ -5,27 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="./content/style.css">
+  <link rel="stylesheet" type="text/css" href="./content/css/style.css">
 </head>
 <body>
 <div class="container">
-  <h3>
-    Please Enter a Name
-  </h3>
   <form id="survey-form" method="post">
-    <label for="name">Name</label><br>
-    <input type="text" name="name" required><br>
-    <hr>
     <h3>
       <%= survey.topic %>
     </h3>
+    <label for="name"><strong>Your Name</strong></label><br>
+    <input type="text" name="name" /><br>
     <input type="hidden" name="topic" value="<%= survey.topic%>">
     <label for="question1">
       <%= survey.question1 %>
     </label><br>
     <input type="hidden" name="question1" value="<%= survey.question1%>">
     <input type="text" name="answer1" /><br>
-
     <label for="question2">
       <%= survey.question2 %>
     </label><br>

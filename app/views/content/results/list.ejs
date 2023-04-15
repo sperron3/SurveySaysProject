@@ -1,51 +1,56 @@
-<div class="container">
-    <h1>
-        <%=title %>
-    </h1>
-    <div class="row">
-        <div class="column">
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col" class="text-center">#</th>
-                        <th scope="col" class="text-center">Nickname</th>
-                        <th scope="col">Survey Topic</th>
-                        <th>Date Taken</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="surveyList">
-                    <% for(let count=0; count < answers.length; count++) { %>
-                        <tr>
-                            <td scope="row" class="text-center"></td>
-                            <td>
-                                <%= answers[count].name%>
-                            </td>
-                            <td>
-                                <%= answers[count].topic %>
-                            </td>
-                            <td>
-                                <%= answers[count].createdAt %>
-                            </td>
-                            <% if( username) { %>
-                                </td>
-                                <td class="text-center col-1">
-                                    <a class="btn btn-warning" href="/results-delete/<%= answers[count].id %>">
-                                        Delete
-                                    </a>
-                                </td>
-                                <% } else { %>
-                                    <td class="text-center col-1">
-                                        <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
-                                            Details
-                                        </a>
-                                    </td>
-                                    <% } %>
-                        </tr>
-                        <% } %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HomePage</title>
+    <link rel="stylesheet" type="text/css" href="./content/css/home.css">
+</head>
+<body>
+<h3><%= title %></h3>
+<h5>Surveys taken: <%= answers.length %></h5>
+<h4>  </h4>
+<table class="results-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Survey</th>
+        <th>Date Taken</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(let count=0; count < answers.length; count++) { %>
+        <tr>
+            <td>
+                <%= count+1 %>
+            </td>
+            <td>
+                <%= answers[count].name %>
+            </td>
+            <td>
+                <%= answers[count].topic %>
+            </td>
+            <td>
+                <%= answers[count].createdAt %>
+            </td>
+            <% if( username) { %>
+                <td>
+                    <a class="btn btn-warning" href="/results-delete/<%= answers[count].id %>">
+                        Delete
+                    </a>
+                </td>
+            <% } else { %>
+                <td>
+                    <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
+                        Details
+                    </a>
+                </td>
+            <% } %>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+</body>
+
+</html>

@@ -1,50 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./content/css/home.css">
+    <title>Document</title>
+</head>
+<body>
 <div class="container">
-    <h1>
-        <%=title %>
-    </h1>
+    <h1><%=title %></h1>
     <a href="/survey-add" class="btn btn-primary" role="button">
         <i class="fas fa-plus-circle"></i> Create a Survey
     </a>
-    <div class="row">
-        <div class="column">
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col" class="text-center">#</th>
-                        <th scope="col">Survey Topic</th>
-                        <th scope="col">Starts At</th>
-                        <th scope="col">Ends At</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="surveyList">
-                    <% for(let count=0; count < survey.length; count++) { %>
-                        <tr>
-                            <td scope="row" class="text-center"></td>
-                            <td>
-                                <%= survey[count].topic %>
-                            </td>
-                            <td>
-                                <%= survey[count].startsAt %>
-                            </td>
-                            <td>
-                                <%= survey[count].endsAt %>
-                            </td>
-                            <td class="text-center col-1">
-                                <a class="btn btn-primary" href="/survey-edit/<%= survey[count].id %>">
-                                    Edit
-                                </a>
-                            </td>
-                            <td class="text-center col-1">
-                                <a class="btn btn-warning" href="/survey-delete/<%= survey[count].id %>">
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                        <% } %>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <table class="mySurveys-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Survey Topic</th>
+            <th>Date Created</th>
+            <th>Expires At</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(let count=0; count < survey.length; count++) { %>
+            <tr>
+                <td>
+                    <%= count+1 %>
+                </td>
+                <td>
+                    <%= survey[count].topic %>
+                </td>
+                <td>
+                    <%= survey[count].createdAt %>
+                </td>
+                <td>
+                    <%= survey[count].endsAt %>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-primary" href="/survey-edit/<%= survey[count].id %>">Edit</a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-warning" href="/survey-delete/<%= survey[count].id %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
 </div>
+</body>
+</html>
