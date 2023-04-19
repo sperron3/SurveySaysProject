@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="./content/css/style.css">
+  <title>User Survey</title>
+  <link rel="stylesheet" type="text/css" href="./content/css/form.css">
 </head>
+
 <body>
-<div class="container">
-  <form id="survey-form" method="post">
-    <h3>
-      <%= survey.topic %>
-    </h3>
-    <label for="name"><strong>Your Name</strong></label><br>
-    <input type="text" name="name" /><br>
-    <input type="hidden" name="topic" value="<%= survey.topic%>">
-    <label for="question1">
-      <%= survey.question1 %>
-    </label><br>
-    <input type="hidden" name="question1" value="<%= survey.question1%>">
-    <input type="text" name="answer1" /><br>
-    <label for="question2">
-      <%= survey.question2 %>
-    </label><br>
-    <input type="hidden" name="question2" value="<%= survey.question2 %>">
-    <input type="text" name="answer2"><br>
+  <div class="container">
+    <form id="survey-form" method="post">
+      <h3>
+        <%= survey.topic %>
+      </h3>
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input type="text" name="name" />
+        </div>
 
-    <label for="question3">
-      <%= survey.question3 %>
-    </label><br>
-    <input type="hidden" name="question3" value="<%= survey.question3 %>">
-    <input type="text" name="answer3"><br>
+        <div class="form-control">
+          <input type="hidden" name="topic" value="<%= survey.topic%>">
+          <label for="question1">
+            <%= survey.question1 %>
+          </label>
+          <input type="hidden" name="question1" value="<%= survey.question1%>">
+          <input type="text" name="answer1" />
+        </div>
 
-    <label for="question4">
-      <%= survey.question4 %>
-    </label><br>
-    <input type="hidden" name="question4" value="<%= survey.question4 %>">
-    <input type="text" name="answer4"><br>
+        <div class="form-control">
+          <label for="question2">
+            <%= survey.question2 %>
+          </label>
+          <input type="hidden" name="question2" value="<%= survey.question2 %>">
+          <input type="text" name="answer2">
+        </div>
 
-    <label for="question5">
-      <%= survey.question5 %>
-    </label><br>
-    <input type="hidden" name="question5" value="<%= survey.question5 %>">
-    <input type="text" name="answer5"><br><br>
+        <div class="form-control">
+          <label for="question3">
+            <%= survey.question3 %>
+          </label>
+          <input type="hidden" name="question3" value="<%= survey.question3 %>">
+          <input type="text" name="answer3">
+        </div>
 
-    <button type="submit">Submit</button>
-    <button type="button" onclick="location.href='/results-list'">
-      View results
-    </button>
-    <button type="reset">Reset</button>
-    <button type="button" onclick="location.href='/'">Home Page</button>
-  </form>
-</div>
+        <div class="form-control">
+          <label for="question4">
+            <%= survey.question4 %>
+          </label>
+          <input type="hidden" name="question4" value="<%= survey.question4 %>">
+          <input type="text" name="answer4">
+        </div>
+
+        <div class="form-control">
+          <label for="question5">
+            <%= survey.question5 %>
+          </label>
+          <input type="hidden" name="question5" value="<%= survey.question5 %>">
+          <input type="text" name="answer5">
+        </div>
+      <button type="submit">Submit</button>
+      <button type="button" onclick="location.href='/results-list'">
+       Results
+      </button>
+      <button type="reset">Reset</button>
+      <button type="button" onclick="location.href='/'">Home Page</button>
+    </form>
+  </div>
 </body>
+
 </html>

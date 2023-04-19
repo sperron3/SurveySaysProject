@@ -14,6 +14,22 @@
 <div class="survey-says-logo">
     <img src="./content/photos/SurveySaysLogo.png" alt="Survey Says Logo">
 </div>
+<div class="stats-list">
+    <table>
+        <tr>
+            <td>Last Survey Taken:</td>
+            <td><%= answers[answers.length-1].topic%></td>
+        </tr>
+        <tr>
+            <td>Total Number of Surveys Taken:</td>
+            <td><%= answers.length%></td>
+        </tr>
+        <tr>
+            <td>Total Participants:</td>
+            <td><%= participants.size%></td>
+        </tr>
+    </table>
+</div>
 <table class="homepage-table">
     <thead>
     <tr>
@@ -40,22 +56,6 @@
     <% } %>
     </tbody>
 </table>
-<div class="stats-list">
-    <table>
-        <tr>
-            <td>Last Survey Taken:</td>
-            <td><%= answers[answers.length-1].topic%></td>
-        </tr>
-        <tr>
-            <td>Total Number of Surveys Taken:</td>
-            <td><%= answers.length%></td>
-        </tr>
-        <tr>
-            <td>Total Participants:</td>
-            <td><%= participants.size%></td>
-        </tr>
-    </table>
-</div>
 </body>
 
 </html>

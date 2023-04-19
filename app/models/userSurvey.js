@@ -20,6 +20,7 @@ const answersSchema = new Schema({
 
     question5: String,
     answer5: String,
+
 }, {
     timestamps: true,
     collection: 'answers'

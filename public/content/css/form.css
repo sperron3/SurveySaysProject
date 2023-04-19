@@ -1,0 +1,65 @@
+body {
+    background-color: #f0f0f0;
+  }
+  .container {
+      text-align: center;
+      margin: 50px auto;
+      padding: 40px 60px; /* Increase top and bottom padding */
+      max-width: 700px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Style the form header */
+  h3 {
+      margin-top: 0;
+      margin-bottom: 30px; /* Increase margin-bottom */
+      text-align: center;
+  }
+  
+  /* Style the form labels */
+  label {
+      display: block;
+      margin-bottom: 10px; /* Increase margin-bottom */
+  }
+  
+  /* Style the form input fields */
+  input[type="text"] {
+      width: 100%;
+      padding: 10px; /* Increase padding */
+      margin-bottom: 15px; /* Increase margin-bottom */
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+  }
+  
+  /* Style the form buttons */
+  button {
+      display: inline-block;
+      margin-top: 30px; /* Increase margin-top */
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #008cba;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 120px;
+      height: 40px;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      line-height: 24px;
+  }
+  
+  button:last-child {
+      margin-right: 0;
+  }
+  
+  button:hover {
+      background-color: #005f6b;
+  }
+  
+  .form-control {
+      text-align: left;
+      margin-bottom: 20px; /* Increase margin-bottom */
+      background-color: #f0f0f0;
+  }
