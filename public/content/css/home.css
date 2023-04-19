@@ -29,8 +29,8 @@ tr:nth-child(even) {
   margin-left: auto;
   margin-right: auto;
   border-radius: 20%;
-  height: 300px;
-  width: 300px;
+  height: 350px;
+  width: 350px;
 }
 
 .stats-list table {
@@ -43,7 +43,7 @@ tr:nth-child(even) {
 .stats-list td {
   padding: 10px;
   border: none;
-  font-size: 0.9em;
+  font-size: 1em;
   background-color: #f0f0f0;
 }
 

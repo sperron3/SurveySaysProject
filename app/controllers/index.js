@@ -1,6 +1,5 @@
 import { UserDisplayName } from "../utilities/index.js";
 import surveyModel from "../models/surveyModel.js";
-import userSurvey from "../models/userSurvey.js";
 
 export function DisplaySurveyHomePage(req, res, next) {
     surveyModel.find(function (err, surveyCollection) {
