@@ -17,7 +17,7 @@
       </h3>
         <div class="form-control">
           <label for="name">Name</label>
-          <input type="text" name="name" />
+          <input type="text" name="name" placeholder="Your Name" required/>
         </div>
 
         <div class="form-control">
@@ -26,7 +26,7 @@
             <%= survey.question1 %>
           </label>
           <input type="hidden" name="question1" value="<%= survey.question1%>">
-          <input type="text" name="answer1" />
+          <input type="text" name="answer1" placeholder="Answer" required />
         </div>
 
         <div class="form-control">
@@ -34,7 +34,7 @@
             <%= survey.question2 %>
           </label>
           <input type="hidden" name="question2" value="<%= survey.question2 %>">
-          <input type="text" name="answer2">
+          <input type="text" name="answer2" placeholder="Answer" required>
         </div>
 
         <div class="form-control">
@@ -42,7 +42,7 @@
             <%= survey.question3 %>
           </label>
           <input type="hidden" name="question3" value="<%= survey.question3 %>">
-          <input type="text" name="answer3">
+          <input type="text" name="answer3" placeholder="Answer" required>
         </div>
 
         <div class="form-control">
@@ -50,7 +50,7 @@
             <%= survey.question4 %>
           </label>
           <input type="hidden" name="question4" value="<%= survey.question4 %>">
-          <input type="text" name="answer4">
+          <input type="text" name="answer4" placeholder="Answer" required>
         </div>
 
         <div class="form-control">
@@ -58,7 +58,7 @@
             <%= survey.question5 %>
           </label>
           <input type="hidden" name="question5" value="<%= survey.question5 %>">
-          <input type="text" name="answer5">
+          <input type="text" name="answer5" placeholder="Answer" required>
         </div>
       <button type="submit">Submit</button>
       <button type="button" onclick="location.href='/results-list'">

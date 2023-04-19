@@ -32,11 +32,16 @@ answers.forEach(answer=> {
         </tr>
         <% for (let topic in topicsCount) { %>
             <tr>
-                <td>Total responses for <%= topic %>:</td>
+                <td>Total Responses for <%= topic %>:</td>
                 <td><%= topicsCount[topic] %></td>
             </tr>
         <% } %>
     </table>
+</div>
+<div class="button-container">
+    <a class="btn btn-primary" role="button" onclick="window.print()">
+        <i class="fas fa-plus-circle"></i> Print Results
+    </a>
 </div>
 <table class="results-table">
     <thead>
@@ -45,8 +50,10 @@ answers.forEach(answer=> {
         <th>Name</th>
         <th>Survey</th>
         <th>Date Taken</th>
-        <th></th>
-        <th></th>
+        <% if(username) { %>
+            <th></th>
+            <th></th>
+        <% } %>
     </tr>
     </thead>
     <tbody>
@@ -64,7 +71,7 @@ answers.forEach(answer=> {
             <td>
                 <%= answers[count].createdAt %>
             </td>
-            <% if( username) { %>
+            <% if(username) { %>
                 <td>
                     <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
                         Details
@@ -75,9 +82,6 @@ answers.forEach(answer=> {
                         Delete
                     </a>
                 </td>
-            <% } else { %>
-                <td></td>
-            <td></td>
             <% } %>
         </tr>
     <% } %>
