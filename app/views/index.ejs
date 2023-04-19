@@ -17,8 +17,12 @@
   <body>
     <!-- header -->
     <%- include('components/header.ejs') %>
+
     <!-- main content -->
-    <%- include('content/' + page + '.ejs' ) %>
+    <main class="d-flex flex-column justify-content-center">
+        <%- include('content/' + page + '.ejs' ) %>
+    </main>
+    
     <!-- footer -->
     <%- include('components/footer.ejs') %>
 
