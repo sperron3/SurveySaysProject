@@ -13,11 +13,9 @@ const surveySchema = new mongoose.Schema({
   question3: String,
   question4: String,
   question5: String,
-
-  startsAt: {
-    type: Date,
-    required: true,
-  },
+  question6: String,
+  question7: String,
+  question8: String,
 
   endsAt: {
     type: Date,
