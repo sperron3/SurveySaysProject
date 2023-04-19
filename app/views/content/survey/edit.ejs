@@ -4,47 +4,50 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="./content/css/style.css" />
+    <base href="/">
 </head>
 
 <body>
-    <h2> Create Survey</h2>
-    <form id="survey-form" method="post">
-        <input type="hidden" name="id" value="<%= survey._id %>">
-        <label for="topic">Topic</label>
-        <input type="text" name="topic" value="<%= survey.topic %>" required><br>
-        <hr>
-        <label for="question1">Question 1:</label>
-        <input type="text" name="question1" value="<%= survey.question1 %>" required><br>
-        <hr>
-        <label for="question3">Question 2:</label>
-        <input type="text" name="question2" value="<%= survey.question2 %>" required><br>
-        <hr>
-
-        <label for="question3">Question 3:</label>
-        <input type="text" name="question3" value="<%= survey.question3 %>" required><br>
-        <hr>
-
-        <label for="question3">Question 4:</label>
-        <input type="text" name="question4" value="<%= survey.question4 %>" required><br>
-        <hr>
-
-        <label for="question5">Question 5:</label>
-        <input type="text" name="question5" value="<%= survey.question5 %>" required><br>
-        <hr>
-
-        <label for="startsAt">Starts At:</label>
-        <input type="datetime-local" id="startsAt" name="startsAt" required>
-
-        <label for="endsAt">Ends At:</label>
-        <input type="datetime-local" id="endsAt" name="endsAt" required>
-        <br><br>
-
-        <button class="btn btn-primary" type="submit">
-            <i class="fas fa-edit"></i> Submit</button>
-
-        <a href="/survey-list" class="btn btn-warning">
-            <i class="fas fa-undo"></i>Cancel</a>
-    </form>
+    <main class="d-flex flex-column justify-content-center"> <h2> Create Survey</h2>
+        <form id="survey-form" method="post">
+            <input type="hidden" name="id" value="<%= survey._id %>">
+            <label for="topic">Topic</label>
+            <input type="text" name="topic" value="<%= survey.topic %>" required><br>
+            <hr>
+            <label for="question1">Question 1:</label>
+            <input type="text" name="question1" value="<%= survey.question1 %>" required><br>
+            <hr>
+            <label for="question3">Question 2:</label>
+            <input type="text" name="question2" value="<%= survey.question2 %>" required><br>
+            <hr>
+    
+            <label for="question3">Question 3:</label>
+            <input type="text" name="question3" value="<%= survey.question3 %>" required><br>
+            <hr>
+    
+            <label for="question3">Question 4:</label>
+            <input type="text" name="question4" value="<%= survey.question4 %>" required><br>
+            <hr>
+    
+            <label for="question5">Question 5:</label>
+            <input type="text" name="question5" value="<%= survey.question5 %>" required><br>
+            <hr>
+    
+            <label for="startsAt">Starts At:</label>
+            <input type="datetime-local" id="startsAt" name="startsAt" required>
+    
+            <label for="endsAt">Ends At:</label>
+            <input type="datetime-local" id="endsAt" name="endsAt" required>
+            <br><br>
+    
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-edit"></i> Submit</button>
+    
+            <a href="/survey-list" class="btn btn-warning">
+                <i class="fas fa-undo"></i>Cancel</a>
+        </form></main>
+   
 
 </body>
 
