@@ -7,6 +7,37 @@
 </head>
 <body>
 <h3><%= title %></h3>
+<%
+let respondents=new Set();
+let topicsCount = {};
+
+answers.forEach(answer=> {
+    respondents.add(answer.name);
+    topicsCount[answer.topic] = (topicsCount[answer.topic] || 0) + 1;
+});
+%>
+<div class="stats-list">
+    <table>
+        <tr>
+            <td>Last Survey Taken:</td>
+            <td><%= answers[answers.length-1].topic%></td>
+        </tr>
+        <tr>
+            <td>Total Number of Surveys Taken:</td>
+            <td><%= answers.length%></td>
+        </tr>
+        <tr>
+            <td>Total Number of Respondents:</td>
+            <td><%= respondents.size%></td>
+        </tr>
+        <% for (let topic in topicsCount) { %>
+            <tr>
+                <td>Total responses for <%= topic %>:</td>
+                <td><%= topicsCount[topic] %></td>
+            </tr>
+        <% } %>
+    </table>
+</div>
 <table class="results-table">
     <thead>
     <tr>
@@ -14,6 +45,7 @@
         <th>Name</th>
         <th>Survey</th>
         <th>Date Taken</th>
+        <th></th>
         <th></th>
     </tr>
     </thead>
@@ -34,16 +66,18 @@
             </td>
             <% if( username) { %>
                 <td>
+                    <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
+                        Details
+                    </a>
+                </td>
+                <td>
                     <a class="btn btn-warning" href="/results-delete/<%= answers[count].id %>">
                         Delete
                     </a>
                 </td>
             <% } else { %>
-                <td>
-                    <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
-                        Details
-                    </a>
-                </td>
+                <td></td>
+            <td></td>
             <% } %>
         </tr>
     <% } %>

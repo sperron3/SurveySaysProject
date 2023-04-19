@@ -50,11 +50,11 @@ export function ProcessRegistrationPage(req, res, next) {
                 console.error(error.name);
                 req.flash('registerMessage', 'Server Error');
             }
-            return res.redirect('/register');
+            return res.redirect('/login');
         }
 
         return passport.authenticate('local', (req, res, function () {
-            return res.redirect('/');
+            return res.redirect('/register');
         }));
     });
 }
@@ -73,7 +73,7 @@ export function ProcessLoginPage(req, res, next) {
                 console.error(err);
                 res.end(err);
             }
-            return res.redirect('/');
+            return res.redirect('/survey-list');
         })
     })(req, res, next);
 }
@@ -86,5 +86,5 @@ export function ProcessLogoutPage(req, res, next) {
         }
         console.log('User logout Successful');
     })
-    res.redirect('/login');
+    res.redirect('/');
 }
