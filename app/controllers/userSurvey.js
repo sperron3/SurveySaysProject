@@ -14,26 +14,27 @@ export function DisplayAddAnswersPage(req, res, next){
     })
 }
 
-export function ProcessAddAnswersPage(req, res, next){
+export function ProcessAddAnswersPage(req, res, next) {
     let id = req.params.id;
 
-    surveyModel.findById(id, function(error, survey){
-        if(error){
+    surveyModel.findById(id, function (error, survey) {
+        if (error) {
             console.error(error);
             res.end(error);
-        }
-        else{
-            if(survey){
+        } else {
+            if (survey) {
                 let newSurveyAnswers = surveyAnswers({
-                    ...req.body
+                    ...req.body,
                 });
-                surveyAnswers.create(newSurveyAnswers, function(error, answers){
-                    if(error){
+
+                surveyAnswers.create(newSurveyAnswers, function (error, answers) {
+                    if (error) {
                         console.error(error);
                         res.end(error);
                     }
-                    res.redirect('/results-list');
-                })
+                    // Redirect to the results page with the inserted document's ID
+                    res.redirect(`/results-details/${answers._id}`);
+                });
             }
         }
     });
