@@ -32,7 +32,6 @@ export function ProcessAddAnswersPage(req, res, next) {
                         console.error(error);
                         res.end(error);
                     }
-                    // Redirect to the results page with the inserted document's ID
                     res.redirect(`/results-details/${answers._id}`);
                 });
             }

@@ -5,88 +5,102 @@
     <title>HomePage</title>
     <link rel="stylesheet" type="text/css" href="./content/css/home.css">
 </head>
-<body>
-<h1><%= title %></h1>
-<%
-let respondents=new Set();
-let topicsCount = {};
 
-answers.forEach(answer=> {
-    respondents.add(answer.name);
-    topicsCount[answer.topic] = (topicsCount[answer.topic] || 0) + 1;
-});
-%>
-<div class="stats-list">
-    <table>
-        <tr>
-            <td>Last Survey Taken:</td>
-            <td><%= answers[answers.length-1].topic%></td>
-        </tr>
-        <tr>
-            <td>Total Number of Surveys Taken:</td>
-            <td><%= answers.length%></td>
-        </tr>
-        <tr>
-            <td>Total Number of Respondents:</td>
-            <td><%= respondents.size%></td>
-        </tr>
-        <% for (let topic in topicsCount) { %>
-            <tr>
-                <td>Total Responses for <%= topic %>:</td>
-                <td><%= topicsCount[topic] %></td>
-            </tr>
-        <% } %>
-    </table>
-</div>
-<div class="button-container">
-    <a class="btn btn-primary" role="button" onclick="window.print()">
-        <i class="fas fa-plus-circle"></i> Print Results
-    </a>
-</div>
-<table class="results-table">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Survey</th>
-        <th>Date Taken</th>
-        <% if(username) { %>
-            <th></th>
-            <th></th>
-        <% } %>
-    </tr>
-    </thead>
-    <tbody>
-    <% for(let count=0; count < answers.length; count++) { %>
-        <tr>
-            <td>
-                <%= count+1 %>
-            </td>
-            <td>
-                <%= answers[count].name %>
-            </td>
-            <td>
-                <%= answers[count].topic %>
-            </td>
-            <td>
-                <%= answers[count].createdAt %>
-            </td>
-            <% if(username) { %>
-                <td>
-                    <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
-                        Details
-                    </a>
-                </td>
-                <td>
-                    <a class="btn btn-warning" href="/results-delete/<%= answers[count].id %>">
-                        Delete
-                    </a>
-                </td>
-            <% } %>
-        </tr>
-    <% } %>
-    </tbody>
-</table>
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <% let respondents=new Set(); let topicsCount={}; if (answers) { answers.forEach(answer=> {
+        respondents.add(answer.name);
+        topicsCount[answer.topic] = (topicsCount[answer.topic] || 0) + 1;
+        });
+        }
+        %>
+        <div class="stats-list">
+            <table>
+                <tr>
+                    <td>Last Survey Taken:</td>
+                    <td>
+                        <% if (answers && answers.length> 0) { %>
+                            <%= answers[answers.length - 1].topic %>
+                                <% } else { %>
+                                    0
+                                    <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Number of Surveys Taken:</td>
+                    <td>
+                        <%= answers ? answers.length : 0 %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Number of Respondents:</td>
+                    <td>
+                        <%= respondents.size %>
+                    </td>
+                </tr>
+                <% for (let topic in topicsCount) { %>
+                    <tr>
+                        <td>Total Responses for <%= topic %>:</td>
+                        <td>
+                            <%= topicsCount[topic] %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+        <div class="button-container">
+            <a class="btn btn-primary" role="button" onclick="window.print()">
+                <i class="fas fa-plus-circle"></i> Print Results
+            </a>
+        </div>
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Survey</th>
+                    <th>Date Taken</th>
+                    <% if(username) { %>
+                        <th></th>
+                        <th></th>
+                        <% } %>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (answers) { %>
+                    <% for(let count=0; count < answers.length; count++) { %>
+                        <tr>
+                            <td>
+                                <%= count + 1 %>
+                            </td>
+                            <td>
+                                <%= answers[count].name %>
+                            </td>
+                            <td>
+                                <%= answers[count].topic %>
+                            </td>
+                            <td>
+                                <%= answers[count].createdAt %>
+                            </td>
+                            <% if(username) { %>
+                                <td>
+                                    <a class="btn btn-primary" href="/results-details/<%= answers[count].id %>">
+                                        Details
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-warning" href="/results-delete/<%= answers[count].id %>">
+                                        Delete
+                                    </a>
+                                </td>
+                                <% } %>
+                        </tr>
+                        <% } %>
+                            <% } %>
+            </tbody>
+        </table>
 </body>
 
 </html>
